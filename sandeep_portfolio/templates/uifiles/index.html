@@ -652,20 +652,25 @@
 									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:.1s; animation-duration:700ms;">
 										<h4>Let's grab a coffee and jump on conversation <span class="has-accent-color">chat with me.</span></h4>
 										<div class="vlt-gap-20"></div>
-										<form class="vlt-contact-form" novalidate="novalidate">
+										<form id="contact-submit" class="vlt-contact-form" novalidate="novalidate" method="post">
+											{% csrf_token %}
 											<div class="vlt-form-group">
 												<input type="text" id="name" name="name" required="required" placeholder="Your Name">
+												
 											</div>
 											<div class="vlt-form-group">
 												<input type="email" id="email" name="email" required="required" placeholder="Your Email">
+												
+
 											</div>
-											<div class="vlt-form-group">
+											<div class="vlt-form-group" required>
 												<textarea name="message" id="message" rows="3" placeholder="Message"></textarea>
+											
 											</div>
-											<div class="message success">Your message is successfully sent...</div>
-											<div class="message danger">Sorry something went wrong!</div>
+											<!-- <div class="message success">Your message is successfully sent...</div> -->
+											<!-- <div class="message danger">Sorry something went wrong!</div> -->
 											<!--Button-->
-											<button class="vlt-btn vlt-btn--primary vlt-btn--md">Contact Me</button>
+											<button type="button" class="vlt-btn vlt-btn--primary vlt-btn--md" id="contact-btn">Contact Me</button>
 										</form>
 									</div>
 								</div>

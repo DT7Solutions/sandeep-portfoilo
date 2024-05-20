@@ -35,3 +35,11 @@ class Blog(models.Model):
         return self.Title
     
 
+
+class Contact(models.Model):
+    Name = models.CharField(max_length=100)
+    Email = models.EmailField(max_length=50)
+    Message = models.TextField()
+
+    def __str__(self):
+        return self.Name
