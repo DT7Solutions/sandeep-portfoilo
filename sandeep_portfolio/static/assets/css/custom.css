@@ -45,13 +45,13 @@
     left: 2rem;
     padding: 7.5rem 2.5rem;
 }
-.vlt-fixed-socials::after,.vlt-fixed-socials::before {
+/* .vlt-fixed-socials::after,.vlt-fixed-socials::before {
     width: 1px;
     height: 100%;
     margin: 0 auto;
     content: '';
     background-color: rgba(255,255,255,.4)
-}
+} */
 .vlt-fixed-socials::before {
     margin-bottom: 2.5rem
 }

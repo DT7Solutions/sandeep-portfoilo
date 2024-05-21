@@ -19,7 +19,6 @@ def index(request):
                 Name:{} 
                 Email:{}
                 Message:{}
-                Smtp mail testing for sandeep portfolio
                 """.format(name,email,message)
 
         send_mail(

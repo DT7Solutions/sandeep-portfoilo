@@ -2154,7 +2154,7 @@ textarea:focus::-webkit-input-placeholder {
 
 .vlt-fixed-socials::after,
 .vlt-fixed-socials::before {
-    width: 1px;
+    width: 0px;  /* width:1px; previour */
     height: 100%;
     margin: 0 auto;
     content: '';
@@ -2172,13 +2172,15 @@ textarea:focus::-webkit-input-placeholder {
 @media only screen and (min-width:1200px) {
     .vlt-fixed-socials {
         left: 3.0625rem;
-        padding: 6.25rem 0
+        padding: 6.25rem 0;
+        display: none !important;
+        
     }
 }
 
 @media only screen and (max-width:575px) {
     .vlt-fixed-socials {
-        display: none
+        display: none !important;
     }
 }
 

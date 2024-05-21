@@ -322,7 +322,7 @@ Author: lineicons.com
 }
 
 .lnir-facebook-filled::before {
-  content: "\ea26";
+  content: "\ea26";      /* facebook icon */
 }
 
 .lnir-cpanel::before {
@@ -414,7 +414,7 @@ Author: lineicons.com
 }
 
 .lnir-instagram::before {
-  content: "\ea3d";
+  content: "\ea3d";     /* instagram icon */
 }
 
 .lnir-javascript::before {
@@ -610,7 +610,7 @@ Author: lineicons.com
 }
 
 .lnir-twitter-original::before {
-  content: "\ea6e";
+  content: "\ea6e";  /* twitter icon */
 }
 
 .lnir-twitter::before {

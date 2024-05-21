@@ -171,7 +171,7 @@
 														<p class="mb-2">"Consultant of the Year 2023" || Top 100 Admiring Marketing Leaders 2023 || Scaling Grofessors </p>
 														<p> Grofessors Innovations Private Limited | Deakin University </p>
 													</div>
-													<a class="vlt-btn vlt-btn--primary  vlt-btn--md bg-light text-dark" style="font-weight: 800;"    href="single-product.html" target="_self">view profile </a>
+													<a class="vlt-btn vlt-btn--primary  vlt-btn--md bg-light text-dark" style="font-weight: 800;"    href="https://www.itsnsandeep.com/" target="_blank">view profile </a>
 												</article>
 											</div>
 											<!-- <div class="swiper-slide">
@@ -655,20 +655,26 @@
 										<form id="contact-submit" class="vlt-contact-form" novalidate="novalidate" method="post">
 											{% csrf_token %}
 											<div class="vlt-form-group">
-												<input type="text" id="name" name="name" required="required" placeholder="Your Name">
-												
+												<input type="text" id="name" name="name" required="required" placeholder="Your Name" value="{{name}}">
+												{% if errors.name %}
+												<p style="color: red;">{{ errors.name }}</p>
+												{% endif %}
 											</div>
 											<div class="vlt-form-group">
-												<input type="email" id="email" name="email" required="required" placeholder="Your Email">
-												
-
+												<input type="email" id="email" name="email" accept="" required="required" placeholder="Your Email" value="{{email}}">
+												{% if errors.email %}
+												<p style="color: red;">{{ errors.email }}</p>
+												{% endif %}
 											</div>
 											<div class="vlt-form-group" required>
-												<textarea name="message" id="message" rows="3" placeholder="Message"></textarea>
-											
+												<textarea name="message" id="message" required="required" placeholder="Message">{{ message }}</textarea>
+												{% if errors.message %}
+												<p style="color: red;">{{ errors.message }}</p>
+												{% endif %}
 											</div>
-											<!-- <div class="message success">Your message is successfully sent...</div> -->
-											<!-- <div class="message danger">Sorry something went wrong!</div> -->
+											<!-- <div class="message success">Your message is successfully sent...</div>
+											<div class="message danger">Sorry something went wrong!</div> -->
+
 											<!--Button-->
 											<button type="button" class="vlt-btn vlt-btn--primary vlt-btn--md" id="contact-btn">Contact Me</button>
 										</form>

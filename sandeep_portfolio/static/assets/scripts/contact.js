@@ -5,11 +5,11 @@ $(document).ready(function(){
 
         let name = $('#name').val();
         let email = $('#email').val();
-        let message = $('message').val();
+        let message = $('#message').val();
         let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val();
 
 
-        let data = new FormData
+        let data = new FormData()
         data.append("name",name),
         data.append("email",email),
         data.append("message",message),
@@ -28,33 +28,14 @@ $(document).ready(function(){
                 if(data.success === true){
                     alert('Your Request submited sucessfully!')
                 }else{
-                    alert(data.error)
+                    alert("Please fill the all fields")
                 }
             },
             error:function(data){
                 alert("form submitted failed")
-            }
-            
-            
+            } 
             
         })
 
     })
-})
-
-
-
-let form_submit = document.getElementById("contact-submit");
-form_submit.addEventListener('submit',function(event){
-    event.preventDefault();
-
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var message = document.getElementById('message').value;
-
-    if (name === '' || email === '' || message === ''){
-        document.write("All fields Required")
-        return;
-    }
-    this.submit();
 })
