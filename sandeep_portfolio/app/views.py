@@ -29,7 +29,7 @@ def index(request):
             name,
             email_body,
             "noreplayitsnsandeep@gmail.com",
-            ["kajasuresh522@gmail.com"],
+            ["admin@itsnsandeep.com"],
             fail_silently=False,
         )
 
