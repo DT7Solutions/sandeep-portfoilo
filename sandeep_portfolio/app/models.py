@@ -33,7 +33,7 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.Title
-    
+   
 
 
 class Contact(models.Model):

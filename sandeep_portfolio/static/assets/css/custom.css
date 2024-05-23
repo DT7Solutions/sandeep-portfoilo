@@ -290,7 +290,7 @@ h1.vlt-large-heading {
 
     }
     .vlt-btn--md{
-        margin-bottom: 90px !important;
+        margin-bottom: 50px !important;
     }
     .vlt-testimonial__text p {
         text-align: justify !important;
@@ -339,7 +339,43 @@ h1.vlt-large-heading {
         font-size: 0.8rem;
         pointer-events: auto;
     }
+    .vlt-offcanvas-menu__footer{
+        display: none !important;
+    }
+
 }
+
+@media (min-width:768px) and (max-width:1500px){
+    .vlt-offcanvas-menu__footer{
+        display: none !important;
+    }
+}
+
+.call-to-action{
+    display: flex !important;
+    justify-content:space-between !important;
+    align-items: center !important;
+    margin-bottom: 50px !important;
+    margin-top: 65px !important;
+   
+}
+
+.call-action-title h4{
+    font-size: 39px !important;
+}
+
+.call-to-action .vlt-btn-invite{
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    height: 3.3125rem;
+    padding: 0 3.8125rem;
+
+}
+
+.contact-sec{
+    margin-bottom: 40px !important;
+}
+
 
 
 .mb-2{
@@ -518,6 +554,7 @@ h1.vlt-large-heading {
   
   /* font-weight: 700; */
 }
+
 @media (min-width: 767px) {
 .olcards li .content .text {
   grid-area: text;
@@ -540,11 +577,33 @@ h1.vlt-large-heading {
         padding-top:20px !important;
         padding-bottom:30px !important;
     }
+    .creative-title{
+        padding-top: 0px !important; 
+    }
+    .vlt-animated-enterprs h3{
+        padding-top: 70px !important;
+    }
     
     h3{
-        /* line-height: 1.35 !important; */
+        line-height: 1.35 !important;
         font-size: 2.15rem !important; 
-        padding-top: 70px !important;
+        padding-top:10px !important;
+    }
+    .call-to-action{
+        display:block !important;
+        margin-top: 70px !important; 
+     }
+    .call-to-action .call-action-title h4{
+        margin-top: 10px !important;
+        margin-bottom: 5px !important;
+        font-size: 23px !important;
+     }
+    .vlt-btn-invite{
+        margin-top: 20px !important;
+        margin-bottom: 10px !important;
+    }
+    .has-accent-color h3{
+        margin-top: -50px !important;
     }
     
 }

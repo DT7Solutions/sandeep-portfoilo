@@ -259,7 +259,12 @@
 }
 
 .has-accent-color {
-    color: #cf000f
+    color: #cf000f;
+    margin-top:70px !important;
+}
+
+.has-accent-color h3{
+    margin-top: -40px !important;
 }
 
 .has-white-color {
@@ -2846,7 +2851,8 @@ textarea:focus::-webkit-input-placeholder {
     width: .75rem;
     height: .75rem;
     opacity: 1;
-    background-color: #fff
+    background-color: #fff;
+    display: none !important;
 }
 
 .vlt-slider-controls .vlt-swiper-pagination .swiper-pagination-bullet:focus {
