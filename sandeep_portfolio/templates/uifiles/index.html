@@ -639,11 +639,14 @@
 										<h4>invite CSK as a Speaker to your next event </h4>
 									</div>
 									<div class="call-action-btn">
-										<a class="vlt-btn vlt-btn--primary vlt-btn--md vlt-btn-invite" href="mailto:connect@itsnsandeep.com" target="_blank">Invite</a>
+										<a class="vlt-btn vlt-btn--primary vlt-btn--md vlt-btn-invite" data-bs-toggle="modal" href="#Popup">Invite</a>
 									</div>
-									
 								</div>
 							</div>
+
+							
+						
+							  
 							<div class="row contact-sec">
 								<div class="col-xl-4">
 									<!--Animated Block-->
@@ -701,8 +704,66 @@
 			<!--Progress Bar-->
 			<div class="vlt-fullpage-slider-progress-bar"><span></span></div>
 		</div>
-
 	</main>
+
+	<div class="modal" id="Popup">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+	  
+			<!-- Modal Header -->
+			<div class="modal-header">
+			  <!-- <h4 class="modal-title text-body">Modal Heading</h4> -->
+			  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+	  
+			<!-- Modal body -->
+			<div class="modal-body">
+				<form class="login-form" action="javascript:void(0);">
+				 {% csrf_token %}
+					<div class="form-input-material">
+					  <input type="text" name="full_name" id="full_name" placeholder="Name" autocomplete="off" class="form-control-material" required />
+					  {% if errors.full_name %}
+					  <p style="color: red;">{{ errors.full_name }}</p>
+					  {% endif %}
+					</div>
+					<div class="form-input-material">
+					  <input type="email" name="invite_email" id="invite_email" placeholder="Email" autocomplete="off" class="form-control-material" required />
+					  {% if errors.invite_email %}
+					  <p style="color: red;">{{ errors.invite_email }}</p>
+					  {% endif %}
+					</div>
+					<div class="form-input-material">
+						<textarea name="reach-us-message" id="reach-us-message" placeholder="Reason To Reach Us"></textarea>
+						{% if errors.reach_message %}
+						<p style="color: red;">{{ errors.reach_message }}</p>
+						{% endif %}
+					  </div>
+					<button type="submit" id="btn-submit" class="btn btn-primary login-btn btn-ghost">Submit</button>
+				  </form>
+			 <!-- <form>
+				<div class="row">
+					<div class="col-md-12">
+						<input type="text" name="name" id="name" placeholder="Name"><br>
+					</div>
+					<div class="col-md-12">
+						<input type="text" name="email" id="email" placeholder="Email"><br>
+					</div>
+					<div class="col-md-12">
+						<textarea name="reason_message" id="reason_message" placeholder="Reason To Reach Us"></textarea><br>
+					</div>
+					<div class="col-md-12">
+						<button>Submit</button>
+					</div>
+					
+				</div>
+			 </form> -->
+			</div>
+	  
+		  </div>
+		</div>
+	  </div>
+
+	
 
 
 {% endblock %}	

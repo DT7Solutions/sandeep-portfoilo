@@ -4,17 +4,28 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
+    
         {
-            "command": "npm start",
-            "name": "Run npm start",
+            "name": "Electron Main",
+            "program": "${workspaceFolder}/main.js",
             "request": "launch",
-            "type": "node-terminal"
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
         },
         {
-            "type": "chrome",
+            "name": "Python Debugger: Django",
+            "type": "debugpy",
             "request": "launch",
-            "name": "Open index.html",
-            "file": "d:\\main projects\\sandeep-portfoilo\\sandeep_portfolio\\templates\\uifiles\\index.html"
+            "program": "${workspaceFolder}//sandeep_portfolio///manage.py",
+            "args": [
+                "runserver",
+                "--noreload"
+            ],
+            "django": true
         }
     ]
 }

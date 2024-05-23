@@ -36,10 +36,23 @@ class Blog(models.Model):
    
 
 
+
+
 class Contact(models.Model):
+    formtype = (
+        ('contact', 'contact'),
+        ('invite', 'invite'),
+    )
+
     Name = models.CharField(max_length=100)
     Email = models.EmailField(max_length=50)
     Message = models.TextField()
+    Form_type = models.CharField(choices=formtype, max_length=30, default='contact')
+    SearchFields = ['Name','Email','Message']
+  
+
 
     def __str__(self):
         return self.Name
+
+

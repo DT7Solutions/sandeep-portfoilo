@@ -14,6 +14,10 @@ def index(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
+        full_name = request.POST.get('full_name')
+        invite_email = request.POST.get('invite_email')
+        reach_message = request.POST.get('message')
+        form_type = request.POST.get('form_type')
 
         email_body = """
                 Name:{} 
@@ -22,10 +26,9 @@ def index(request):
                 """.format(name,email,message)
 
         send_mail(
-            "Testing SMTP",
             email_body,
-            "kajasuresh522@gmail.com",
-            ["kajasuresh522@gmail.com"],
+            "noreplayitsnsandeep@gmail.com",
+            ["admin@itsnsandeep.com"],
             fail_silently=False,
         )
 
@@ -42,12 +45,21 @@ def index(request):
         if not message:
             errors['message'] = 'Message field is required.'
 
+        if not full_name :
+            errors['full_name'] = 'Name field is required.' 
+        
+        if not invite_email :
+            errors['full_name'] = 'Name field is required.' 
+        
+        if not reach_message :
+            errors['full_name'] = 'Name field is required.' 
+
         if errors:
-             return render(request, 'uifiles/index.html', {'errors': errors, 'name': name, 'email': email, 'message': message})
+             return render(request, 'uifiles/index.html', {'errors': errors, 'name': name, 'email': email, 'message': message, 'full_name':full_name,'invite_email':invite_email,'reach_message':reach_message})
         
 
         else:
-            oContact = Contact(Name=name, Email=email, Message=message)
+            oContact = Contact(Name=name, Email=email, Message=message,Form_type=form_type)
             oContact.save()
             return JsonResponse({'success':True})
 

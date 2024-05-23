@@ -11,6 +11,9 @@ class AdminBlog(admin.ModelAdmin):
 
 class AdminContact(admin.ModelAdmin):
     list_display = ['Name','Email','Message']
+    list_filter = ['Name']
+    search_fields = Contact.SearchFields
+
 
 
 
