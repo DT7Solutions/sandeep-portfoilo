@@ -26,11 +26,13 @@ def index(request):
                 """.format(name,email,message)
 
         send_mail(
+            name,
             email_body,
             "noreplayitsnsandeep@gmail.com",
-            ["admin@itsnsandeep.com"],
+            ["kajasuresh522@gmail.com"],
             fail_silently=False,
         )
+
 
 
         # validations
@@ -45,17 +47,17 @@ def index(request):
         if not message:
             errors['message'] = 'Message field is required.'
 
-        if not full_name :
-            errors['full_name'] = 'Name field is required.' 
+        # if not full_name :
+        #     errors['full_name'] = 'Name field is required.' 
         
-        if not invite_email :
-            errors['full_name'] = 'Name field is required.' 
+        # if not invite_email :
+        #     errors['full_name'] = 'Name field is required.' 
         
-        if not reach_message :
-            errors['full_name'] = 'Name field is required.' 
+        # if not reach_message :
+        #     errors['full_name'] = 'Name field is required.' 
 
         if errors:
-             return render(request, 'uifiles/index.html', {'errors': errors, 'name': name, 'email': email, 'message': message, 'full_name':full_name,'invite_email':invite_email,'reach_message':reach_message})
+             return render(request, 'uifiles/index.html', {'errors': errors, 'name': name, 'email': email, 'message': message,})
         
 
         else:
