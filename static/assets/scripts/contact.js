@@ -14,7 +14,6 @@ $(document).ready(function(){
         data.append("email",email),
         data.append("message",message),
         data.append('form_type',"contact")
-        
         data.append("csrfmiddlewaretoken",csrfmiddlewaretoken)
 
         $.ajax({
