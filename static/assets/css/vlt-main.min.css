@@ -2684,7 +2684,7 @@ textarea:focus::-webkit-input-placeholder {
     list-style-type: none;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 3.125rem;
-    grid-row-gap: 9.375rem
+    grid-row-gap: 5.375rem;
 }
 
 @media only screen and (max-width:991px) {
