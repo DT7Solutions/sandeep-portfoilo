@@ -1,13 +1,15 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from .models import Blog,Contact
+from .models import Blog,News,Contact
 from django.core.mail import send_mail
 
 # Create your views here.
 
 
 def index(request):
-    blog_post = Blog.objects.all()
+    blog_post = Blog.objects.filter()[:3]
+    news_post = News.objects.all()
+    
 
     #contact form
     if request.method == 'POST':
@@ -65,9 +67,15 @@ def index(request):
             oContact.save()
             return JsonResponse({'success':True})
 
-    return render(request, 'uifiles/index.html',{'blog_post':blog_post})
+    return render(request, 'uifiles/index.html',{'blog_post':blog_post, 'news_post':news_post})
 
+def blog(request):
+    blog_item = Blog.objects.all()
+    return render (request, 'uifiles/blog.html',{'blog_item':blog_item})
 
+def news_details(request,slug):
+    news_post = News.objects.get(SlugLink=slug)
+    return render(request, 'uifiles/news-details.html',{'news_post':news_post})
 
 
 def blog_details(request,slug):

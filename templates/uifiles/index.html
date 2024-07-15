@@ -325,7 +325,8 @@
 												<path fill="currentColor" d="M25 0C16.9271 0 10.7422 2.14844 6.44531 6.44531 2.14844 10.7422 0 16.9271 0 25v50h31.25V25H12.5c0-4.4271.9766-7.6172 2.9297-9.5703C17.3828 13.4766 20.5729 12.5 25 12.5V0zm43.75 0c-8.0729 0-14.2578 2.14844-18.5547 6.44531C45.8984 10.7422 43.75 16.9271 43.75 25v50H75V25H56.25c0-4.4271.9766-7.6172 2.9297-9.5703C61.1328 13.4766 64.3229 12.5 68.75 12.5V0z" />
 											</svg>
 											<div class="vlt-gap-215 vlt-gap-100--lg"></div>
-											<h3 class="creative-title">Creative & dedicated is things that gilber studio brings for your business.</h3>
+											<h3 class="creative-title">Contributing to weaving brands that thrive, Discover our shared success stories.</h3>
+												<!-- Client Success Stories:Transformative Partnerships and Results</h3> -->
 										</div>
 									</div>
 								</div>
@@ -452,27 +453,28 @@
 					<div class="vlt-section__content ">
 						<div class="container">
 							<!--Animated Block-->
-							<div class="vlt-animated-block vlt-animated-enterprs" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;margin-bottom: 30px;">
-								<h3>Our Enterprises</h3>
-							</div>
+							<!-- <div class="vlt-animated-block vlt-animated-enterprs" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
+								
+							</div> -->
 							<div class="vlt-gap-100"></div>
 							<!--Animated Block-->
 							<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:.1s; animation-duration:700ms;">
+								<h3>Our Enterprises</h3>
 								<ul class="vlt-partners">
 									<li><img src="{% static 'assets/img/m-lp.png' %}" class="rt" alt="" loading="lazy"></li>
-									<li><img src="{% static 'assets/img/clients-logo/magsmen.png' %}" class="rt" alt="" loading="lazy"></li>
-									<li><img src="{% static 'assets/img/clients-logo/tapestryof.png' %}" class="rt" alt="" loading="lazy"></li>
-									<li><img src="{% static 'assets/img/clients-logo/grofers.png' %}" alt=""  class="rt" loading="lazy"></li>
-									<li><img src="{% static 'assets/img/clients-logo/tthinq (1).png' %}"class="rt"  alt="" loading="lazy"></li>
+									<li><img src="{% static 'assets/img/clients-logo/magsmen-three.png' %}" class="rt" alt="" loading="lazy" width="200px"></li>
+									<li><img src="{% static 'assets/img/clients-logo/tapestryoftalentsss.png' %}" class="" alt="talents" loading="lazy"></li>
+									<li><img src="{% static 'assets/img/clients-logo/grofers.png' %}" class="rt" alt="" loading="lazy"></li>
+									<li><img src="{% static 'assets/img/clients-logo/ythinq-two.png' %}"class="rt"  alt="" loading="lazy" width="200px"></li>
 									<li><img src="{% static 'assets/img/clients-logo/wisecapss.png' %}"class="rt"  alt="" loading="lazy"></li>
 									<li><img src="{% static 'assets/img/clients-logo/jayacotton-products.png' %}"class="rt"  alt="" loading="lazy"></li>
 									<li><img src="{% static 'assets/img/clients-logo/jayacotton-associates.png' %}" class="rt" alt="" loading="lazy"></li>
 								</ul>
 							</div>
 							<div class="row">
-								<div class="col-lg-12 call-to-action" style="background-color:#919191;padding:30px;border-radius:3px;">
+								<div class="col-lg-12 call-to-action" style="background-color:#2d2c2c;padding:30px;border-radius:3px;">
 									<div class="call-action-title">
-										<h4>invite N Sandeep as a Speaker to your next event </h4>
+										<h4>Make Sandeep the <b>highlight</b> of your next event <b>invite</b> him as your speaker.</h4>
 									</div>
 									<div class="call-action-btn">
 										<a class="vlt-btn vlt-btn--primary vlt-btn--md vlt-btn-invite" data-bs-toggle="modal" href="#Popup">Invite</a>
@@ -483,35 +485,33 @@
 					</div>
 				</div>
 			</div>
-			 
-			<!--Blog-->
-			
-			
+
+			<!--News-->
 			<!--Section-->
-			<div class="vlt-section pp-scrollable" data-anchor="Blog">
+			<div class="vlt-section pp-scrollable" data-anchor="News">
 				<div class="vlt-section__vertical-align">
 					<div class="vlt-section__content">
 						<div class="container">
 							<!-- <h3 class="h2 news-title mb-5">Latest News</h3> -->
 							<div class="vlt-animated-block mb-3" data-animation-name="fadeInUpSm" style="margin-top:50px; animation-duration:700ms;">
-								<h3>Recent news</h3>
+								<h3>In The  News</h3>
 							</div>
 							<div class="news-items row">
 								
-                            {% for blog_item in blog_post %}
+                            {% for news_item in news_post %}
                             <div class="col-lg-4 news-item-wrap pt-5">
                                 <div class="news-item">
                                     <a class="news-link" href="blog.html">
-                                       <a href="blog-details/{{blog_item.SlugLink}}"><span class="news-item__img"><img src="{{blog_item.Image.url}}" alt="Image"></span></a>
+                                       <a href="news-details/{{news_item.SlugLink}}"><span class="news-item__img"><img src="{{news_item.Image.url}}" alt="Image"></span></a>
                                         <span class="news-item__info mt-2">
-                                            <span class="news-item__info-date">{{blog_item.CreatedAt}} /</span>
-                                            <a href="blog-details/{{blog_item.SlugLink}}"><span class="news-item__info-tag">{{blog_item.CreatedName}}</span></a>
+                                            <span class="news-item__info-date">{{news_item.CreatedAt}} /</span>
+                                            <a href="news-details/{{news_item.SlugLink}}"><span class="news-item__info-tag">{{news_item.CreatedName}}</span></a>
                                         </span>
                             
-                                        <a href="blog-details/{{blog_item.SlugLink}}"><span class="news-item__title">{{blog_item.Title}}</span></a>
+                                        <a href="news-details/{{news_item.SlugLink}}"><span class="news-item__title">{{news_item.Title}}</span></a>
                                     </a>
                             
-                                    <a class="vlt-read-more-link" href="blog-details/{{blog_item.SlugLink}}">
+                                    <a class="vlt-read-more-link" href="news-details/{{news_item.SlugLink}}">
                                         Read more
                                     </a>
                                 </div>
@@ -616,6 +616,139 @@
 				</div>
 			</div>
 			 
+			<!--Blog-->
+			<!--Section-->
+			<div class="vlt-section pp-scrollable" data-anchor="Blog">
+				<div class="vlt-section__vertical-align">
+					<div class="vlt-section__content">
+						<div class="container">
+							<!-- <h3 class="h2 news-title mb-5">Latest News</h3> -->
+							<div class="vlt-animated-block mb-3" data-animation-name="fadeInUpSm" style="margin-top:50px; animation-duration:700ms;">
+								<h3>Blogs</h3>
+							</div>
+							<div class="news-items row">
+                            {% for blog_item in blog_post %}
+                            <div class="col-lg-4 news-item-wrap pt-5">
+                                <div class="news-item">
+                                    <a class="news-link" href="blog.html">
+                                       <a href="blog-details/{{blog_item.SlugLink}}"><span class="news-item__img"><img src="{{blog_item.Image.url}}" alt="Image"></span></a>
+                                        <span class="news-item__info mt-2">
+                                            <span class="news-item__info-date">{{blog_item.CreatedAt}} /</span>
+                                            <a href="blog-details/{{blog_item.SlugLink}}"><span class="news-item__info-tag">{{blog_item.CreatedName}}</span></a>
+                                        </span>
+                            
+                                        <a href="blog-details/{{blog_item.SlugLink}}"><span class="news-item__title">{{blog_item.Title}}</span></a>
+                                    </a>
+                            
+                                    <a class="vlt-read-more-link" href="blog-details/{{blog_item.SlugLink}}">
+                                        Read more
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+							<div class="blog-btn d-flex align-items-center justify-content-center">
+								<a class="vlt-btn vlt-btn--primary  vlt-btn--md bg-light text-dark " style="font-weight: 800;" href="/blog-grid/" target="_blank">View All Blogs</a>
+							</div>
+
+
+							  <!-- <div class="col-lg-4 news-item-wrap">
+								<div class="news-item"><a class="news-link" href="blog.html"> <span class="news-item__img"><img src="{% static 'assets/img/magazine.png' %}" alt=""></span><span class="news-item__info mt-2"><span class="news-item__info-date">13 February, 2021  /</span><span class="news-item__info-tag">The Ceo Magazine </span></span><span class="news-item__title">Sandeep N’s Visionary Journey </span></a></div>
+							  </div>
+							  <div class="col-lg-4 news-item-wrap">
+								<div class="news-item"><a class="news-link" href="blog.html"><span class="news-item__img"><img src="{% static 'assets/img/kluadmin.png' %}" alt=""></span><span class="news-item__info mt-2 "><span class="news-item__info-date">13 February, 2021  /</span><span class="news-item__info-tag">KLU ALumni</span></span><span class="news-item__title">Elegant women's clothing</span></a></div>
+							  </div> -->
+							</div>
+						  </div>
+						<!-- <div class="container">
+							
+							<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
+								<h3>Recent news</h3>
+							</div>
+							<div class="vlt-gap-100"></div>
+							<div class="row">
+								<div class="col-xl-4">
+								
+									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:.1s; animation-duration:700ms;">
+									
+										<article class="vlt-post vlt-post--masonry">
+											<div class="vlt-post-border"><span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span></div>
+											<div class="vlt-post-media"><img src="assets/img/blog-01.jpg" alt="" loading="lazy"></div>
+											<div class="vlt-post-content">
+												<header class="vlt-post-header"><span class="vlt-post-date">December 27, 2020</span>
+													<h3 class="vlt-post-title"><a href="single-post.html">Scent in the Voyages</a></h3>
+												</header>
+												<div class="vlt-post-excerpt">
+													<p>Let years seasons given two fowl above is itself shall third night female seasons you’re whales, unto had fowl Herb. Moving so. Said be fruitful first lights creeping deep void, lesser.
+													</p>
+												</div>
+												<footer class="vlt-post-footer">
+													<a class="vlt-read-more-link" href="single-post.html">
+														Read more
+														<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 8">
+															<defs />
+															<path d="M15.3536 4.35355c.1952-.19526.1952-.51184 0-.7071L12.1716.464466c-.1953-.195262-.5119-.195262-.7071 0-.1953.195262-.1953.511845 0 .707104L14.2929 4l-2.8284 2.82843c-.1953.19526-.1953.51184 0 .7071.1952.19527.5118.19527.7071 0l3.182-3.18198zM0 4.5h15v-1H0v1z" fill="currentColor" />
+														</svg>
+													</a>
+												</footer>
+											</div>
+										</article>
+									</div>
+								</div>
+								<div class="col-xl-4">
+									<div class="vlt-gap-30--lg"></div>
+									
+									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:.2s; animation-duration:700ms;">
+									
+										<article class="vlt-post vlt-post--masonry">
+											<div class="vlt-post-border"><span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span></div>
+											<div class="vlt-post-media"><img src="assets/img/blog-02.jpg" alt="" loading="lazy"></div>
+											<div class="vlt-post-content">
+												<header class="vlt-post-header"><span class="vlt-post-date">December 27, 2020</span>
+													<h3 class="vlt-post-title"><a href="single-post.html">The Stone of the Flames</a></h3>
+												</header>
+												<div class="vlt-post-excerpt">
+													<p>Let years seasons given two fowl above is itself shall third night female seasons you’re whales, unto had fowl Herb. Moving so. Said be fruitful first lights creeping deep void, lesser.
+													</p>
+												</div>
+												<footer class="vlt-post-footer"><a class="vlt-read-more-link" href="single-post.html">
+														Read more<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 8">
+															<defs />
+															<path d="M15.3536 4.35355c.1952-.19526.1952-.51184 0-.7071L12.1716.464466c-.1953-.195262-.5119-.195262-.7071 0-.1953.195262-.1953.511845 0 .707104L14.2929 4l-2.8284 2.82843c-.1953.19526-.1953.51184 0 .7071.1952.19527.5118.19527.7071 0l3.182-3.18198zM0 4.5h15v-1H0v1z" fill="currentColor" /></svg></a></footer>
+											</div>
+										</article>
+									</div>
+								</div>
+								<div class="col-xl-4">
+									<div class="vlt-gap-30--lg"></div>
+									
+									<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:.3s; animation-duration:700ms;">
+									
+										<article class="vlt-post vlt-post--masonry">
+											<div class="vlt-post-border"><span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span></div>
+											<div class="vlt-post-media"><img src="assets/img/blog-03.jpg" alt="" loading="lazy"></div>
+											<div class="vlt-post-content">
+												<header class="vlt-post-header"><span class="vlt-post-date">December 27, 2020</span>
+													<h3 class="vlt-post-title"><a href="single-post.html">Secrets of the Serpents</a></h3>
+												</header>
+												<div class="vlt-post-excerpt">
+													<p>Let years seasons given two fowl above is itself shall third night female seasons you’re whales, unto had fowl Herb. Moving so. Said be fruitful first lights creeping deep void, lesser.
+													</p>
+												</div>
+												<footer class="vlt-post-footer"><a class="vlt-read-more-link" href="single-post.html">
+														Read more<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 8">
+															<defs />
+															<path d="M15.3536 4.35355c.1952-.19526.1952-.51184 0-.7071L12.1716.464466c-.1953-.195262-.5119-.195262-.7071 0-.1953.195262-.1953.511845 0 .707104L14.2929 4l-2.8284 2.82843c-.1953.19526-.1953.51184 0 .7071.1952.19527.5118.19527.7071 0l3.182-3.18198zM0 4.5h15v-1H0v1z" fill="currentColor" /></svg></a></footer>
+											</div>
+										</article>
+									</div>
+								</div>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+
+			 
 			  <!-- <section class="section pp-scrollable" id="news">
 				<div class="news section-inner">
 				  <div class="container section-cnt">
@@ -633,23 +766,23 @@
 					</div>
 				  </div>
 				</div>
-			  </section>
-			  -->
+			  </section> -->
+			 
 			<!--Contact-->
 			<!--Section-->
 			<div class="vlt-section pp-scrollable" data-anchor="Contact">
 				<div class="vlt-section__vertical-align">
 					<div class="vlt-section__content">
 						<!--Ken Burn Effect-->
-						<div class="vlt-section__ken-burn-background"><img src="{% static 'assets/img/contact-bg.png' %}" alt=""></div>
+						<div class="vlt-section__ken-burn-background"><img src="{% static 'assets/img/webs.jpg' %}" alt=""></div>
 						<div class="container"> 
 							<div class="row contact-sec">
 								<div class="col-xl-4">
 									<!--Animated Block-->
-									<div class="vlt-animated-block vlt-animated-contact" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
+									<div class="vlt-animated-block vlt-animated-contact contact-title" data-animation-name="fadeInUpSm" style="animation-delay:0s; animation-duration:700ms;">
 										<h3>Contact</h3>
 										<div class="vlt-gap-30"></div>
-										<p>You'll called for yielding male, so lights Stars abundantly, is their.</p>
+										<!-- <p>Let's Connect: Building Relationships Through Communication</p> -->
 										<div class="vlt-gap-40"></div>
 										<address>4th Floor 402, Ayyappa Society,
 											Plot No:1303, Madhapur,

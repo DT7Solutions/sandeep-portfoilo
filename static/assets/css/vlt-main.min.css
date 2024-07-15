@@ -2679,12 +2679,12 @@ textarea:focus::-webkit-input-placeholder {
 
 .vlt-partners {
     display: grid;
-    margin: 0 -3.125rem;
+    /* margin: 0 -3.125rem; */
     padding: 0;
     list-style-type: none;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 3.125rem;
-    grid-row-gap: 5.375rem;
+    grid-row-gap: 0.375rem;
 }
 
 @media only screen and (max-width:991px) {

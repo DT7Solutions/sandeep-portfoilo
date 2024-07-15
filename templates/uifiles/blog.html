@@ -1,0 +1,33 @@
+{% extends 'uifiles/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="blog-grid-sec pt-5">
+    <div class="container">
+        <div class="row">
+            {% for bloginfo in blog_item %}
+            <div class="col-lg-4 news-item-wrap pt-5">
+                <div class="news-item">
+                    <a class="news-link" href="blog.html">
+                       <a href="/blog-details/{{bloginfo.SlugLink}}"><span class="news-item__img"><img src="{{bloginfo.Image.url}}" alt="Image"></span></a>
+                        <span class="news-item__info mt-2">
+                            <span class="news-item__info-date">{{bloginfo.CreatedAt}} /</span>
+                            <a href="/blog-details/{{bloginfo.SlugLink}}"><span class="news-item__info-tag">{{bloginfo.CreatedName}}</span></a>
+                        </span>
+            
+                        <a href="/blog-details/{{bloginfo.SlugLink}}"><span class="news-item__title">{{bloginfo.Title}}</span></a>
+                    </a>
+            
+                    <a class="vlt-read-more-link" href="/blog-details/{{bloginfo.SlugLink}}">
+                        Read more
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
+
+
+{% endblock %}

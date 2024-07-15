@@ -1,9 +1,20 @@
 from django.contrib import admin
 from django.http import HttpResponse
-from .models import Blog,Contact
+from .models import Blog,News,Contact,Category
 import csv
 
 # Register your models here.
+
+# class AdminCategory(admin.ModelAdmin):
+#      list_display = ['Category_name']
+
+
+class AdminCategory(admin.ModelAdmin):
+    list_display = ['category_name']
+
+
+class AdminNews(admin.ModelAdmin):
+    list_display = ['Title','CreatedAt','Image','BodyTitle']
 
 
 class AdminBlog(admin.ModelAdmin):
@@ -31,5 +42,7 @@ class AdminContact(admin.ModelAdmin):
 
 
 
+admin.site.register(Category,AdminCategory)
+admin.site.register(News,AdminNews)
 admin.site.register(Blog,AdminBlog)
 admin.site.register(Contact,AdminContact)

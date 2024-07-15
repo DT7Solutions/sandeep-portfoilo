@@ -4,22 +4,16 @@ from ckeditor.fields import RichTextField
 
 # Create your models here.
 
-# class Category(models.Model):
-#     CategoryName = models.CharField(max_length=100)
-#     Created = models.DateTimeField(default=datetime.now)
-
-#     def __str__(self):
-#         return self.CategoryName
-    
-
-#     class Meta:
-#         verbose_name = 'Category'
-#         verbose_name_plural = 'Categories'
+class Category(models.Model):
+    category_name = models.CharField(max_length=100)
 
 
+    def __str__(self) -> str:
+        return self.category_name
 
-class Blog(models.Model):
-    Title = models.CharField(max_length=500,default="")
+
+class News(models.Model):
+    Title = models.CharField(max_length=500,)
     CreatedAt = models.DateField()
     CreatedName = models.CharField(max_length=100)
     BodyTitle = models.CharField(max_length=200,null=True)
@@ -33,9 +27,24 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.Title
+
+
+class Blog(models.Model):
+    category = models.ForeignKey(Category,on_delete=models.CASCADE, null=True)
+    Title = models.CharField(max_length=500,default=" ")
+    CreatedAt = models.DateTimeField(default=datetime.now)
+    CreatedName = models.CharField(max_length=100)
+    BodyTitle = models.CharField(max_length=200,null=True)
+    Body = RichTextField()
+    # QuoteTitle = models.CharField(max_length=500,null=True)
+    # QuotedName = models.CharField(max_length=100, null=True)
+    # QuoteFrom = models.CharField(max_length=50,null=True)
+    SlugLink = models.SlugField(max_length=200)
+    Image = models.ImageField(upload_to='uploads/')
    
 
-
+    def __str__(self):
+        return self.Title
 
 
 class Contact(models.Model):
@@ -54,5 +63,8 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.Name
+    
+
+
 
 
