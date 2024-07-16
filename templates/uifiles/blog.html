@@ -34,14 +34,14 @@
             <nav aria-label="Page navigation conatiner">
               <ul class="pagination d-flex justify-content-center">
                 {% if post.has_previous %}
-                  <li class="px-3"><a href="?page={{ post.previous_page_number }}" class="page-link px-5 mb-5" >&laquo; PREV </a></li>
+                  <li class="px-3"><a href="?page={{ post.previous_page_number }}" class="page-link px-5 mb-5 text-dark" >&laquo; PREV </a></li>
                 {% endif %}
                 <!-- <span class="current-page px-3">
                   <span class="no-of-page">{{ post.number }} </span> &nbsp; of {{ post.paginator.num_pages }}
                </span> -->
       
                 {% if post.has_next %}
-                  <li><a href="?page={{ post.next_page_number }}" class="page-link px-5 mb-5"> NEXT &raquo;</a></li>
+                  <li><a href="?page={{ post.next_page_number }}" class="page-link px-5 mb-5 text-dark"> NEXT &raquo;</a></li>
                 {% endif %}
               </ul>
             </nav>

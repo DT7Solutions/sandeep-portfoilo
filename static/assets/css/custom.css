@@ -739,5 +739,10 @@ address{
 @media (min-width:300px) and (max-width:480px) {
     .page-link {
         margin-bottom: 80px !important;
+        color: #000 !important;
       }
 }
+.page-link {
+    color: #000 !important;
+    font-weight: 600;
+  }
