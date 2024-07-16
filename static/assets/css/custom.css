@@ -735,3 +735,9 @@ address{
 .vlt-animated-block p span{
     color: #aaa !important;
 }
+
+@media (min-width:300px) and (max-width:480px) {
+    .page-link {
+        margin-bottom: 80px !important;
+      }
+}
