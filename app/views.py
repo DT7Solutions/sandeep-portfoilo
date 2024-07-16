@@ -1,13 +1,14 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from .models import Blog,News,Contact
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.mail import send_mail
 
 # Create your views here.
 
 
 def index(request):
-    blog_post = Blog.objects.filter()[:3]
+    blog_post = Blog.objects.filter().order_by("-id")[:3]
     news_post = News.objects.all()
     
 
@@ -70,8 +71,25 @@ def index(request):
     return render(request, 'uifiles/index.html',{'blog_post':blog_post, 'news_post':news_post})
 
 def blog(request):
-    blog_item = Blog.objects.all()
-    return render (request, 'uifiles/blog.html',{'blog_item':blog_item})
+    blog_items = Blog.objects.filter().order_by("-id")  # Assuming you retrieve all blog items from your model
+    
+    paginator = Paginator(blog_items, 6)  # Show 6 blog items per page
+
+    page_number = request.GET.get('page')
+    try:
+        blog_page = paginator.page(page_number)
+    except PageNotAnInteger:
+        blog_page = paginator.page(1)
+    except EmptyPage:
+        blog_page = paginator.page(paginator.num_pages)
+
+    context = {
+        'blog_item': blog_page,  # Pass the paginated page object to the template
+        'post': blog_page,  # This is used in your template for pagination checking
+    }
+
+    return render(request, 'uifiles/blog.html', context)
+
 
 def news_details(request,slug):
     news_post = News.objects.get(SlugLink=slug)
