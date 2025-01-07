@@ -4,28 +4,27 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-    
-    
         {
-            "name": "Electron Main",
-            "program": "${workspaceFolder}/main.js",
+            "name": "Python Debugger: Django",
+            "type": "debugpy",
             "request": "launch",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-            "skipFiles": [
-                "<node_internals>/**"
+            "args": [
+                "runserver"
             ],
-            "type": "node"
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}\\manage.py"
         },
         {
             "name": "Python Debugger: Django",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}//sandeep_portfolio///manage.py",
             "args": [
-                "runserver",
-                "--noreload"
+                "runserver"
             ],
-            "django": true
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}\\manage.py"
         }
     ]
 }

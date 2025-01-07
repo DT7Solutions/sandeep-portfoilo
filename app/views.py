@@ -1,8 +1,11 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from .models import Blog,News,Contact
+from .models import Blog,News,Contact,PortfolioPopupSubmit
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.mail import send_mail
+
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 # Create your views here.
 
@@ -100,3 +103,34 @@ def blog_details(request,slug):
     blog_post = Blog.objects.get(SlugLink=slug)
     return render(request, 'uifiles/blog-details.html',{'blog_post':blog_post})
 
+
+
+@csrf_exempt
+def submit_form(request):
+    if request.method == 'POST':
+        popname = request.POST.get('popname')
+        popemail = request.POST.get('popemail')
+        popphone = request.POST.get('popphone')
+        popcity = request.POST.get('popcity')
+
+        # Save the data to the database
+        portfolio_submission = PortfolioPopupSubmit(
+            name=popname,
+            email=popemail,
+            phone=popphone,
+            city=popcity
+        )
+        portfolio_submission.save()
+
+        # Send an email
+        send_mail(
+            subject="Portfolio Form Submission",
+            message=f"Name: {popname}\nEmail: {popemail}\nPhone: {popphone}\nCity: {popcity}",
+            from_email="connectmagsmen@gmail.com",
+            recipient_list=['kajasuresh522@gmail.com'],
+            fail_silently=False,
+        )
+
+        return JsonResponse({'message': 'Portfolio submitted successfully!'})
+
+    return JsonResponse({'error': 'Invalid request'}, status=400)

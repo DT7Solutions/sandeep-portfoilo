@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.http import HttpResponse
-from .models import Blog,News,Contact,Category
+from .models import Blog,News,Contact,Category,PortfolioPopupSubmit
 import csv
 
 # Register your models here.
@@ -40,9 +40,12 @@ class AdminContact(admin.ModelAdmin):
     export_to_csv.short_description = "Download selected as csv"
     
 
+class AdminPortfolioPopupSubmit(admin.ModelAdmin):
+    list_display = ['name','email','phone','city']
 
 
 admin.site.register(Category,AdminCategory)
 admin.site.register(News,AdminNews)
 admin.site.register(Blog,AdminBlog)
 admin.site.register(Contact,AdminContact)
+admin.site.register(PortfolioPopupSubmit,AdminPortfolioPopupSubmit)

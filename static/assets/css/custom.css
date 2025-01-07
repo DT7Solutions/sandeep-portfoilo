@@ -746,3 +746,34 @@ address{
     color: #000 !important;
     font-weight: 600;
   }
+
+
+.vlt-navbar-contacts a {
+    color: #f00; /* Example: red color */
+    font-size: 24px; /* Adjust size */
+    text-decoration: none;
+}
+
+.login-btn {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+    outline: none !important;
+    margin-top: 40px;
+    width: 100%;
+    border-radius: 7px !important;
+
+}
+
+.modal {
+    position: fixed;
+    top: 140px;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+}
+

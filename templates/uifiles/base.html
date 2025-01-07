@@ -43,6 +43,10 @@
 	<link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
 
 
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEW3XK8S1M"></script>
@@ -102,12 +106,14 @@
 								</li>
 								<li data-menuanchor="Partners"><a href="#Partners" class="navbar">Partners</a>
 								</li>
-								<li data-menuanchor="Blog"><a href="#News" class="navbar">News</a>
+								<li data-menuanchor="News"><a href="#News" class="navbar">News</a>
 								</li>
 								<li data-menuanchor="Blog"><a href="#Blog" class="navbar">Blogs</a>
 								</li>
 								<li data-menuanchor="Contact"><a href="#Contact" class="navbar">Contact</a>
 								</li>
+								<!-- <li data-menuanchor="Contact"><a href="#Contact" class="navbar">Portfolio</a>
+								</li> -->
 							</ul>
 						</nav>
 					</div>
@@ -115,7 +121,18 @@
 				<div class="vlt-navbar-inner--right">
 					<div class="d-flex align-items-center">
 						<!--Contacts-->
-						<div class="vlt-navbar-contacts"><a href="tel:+91 90449 10449">+91 90449 10449­</a></div>
+						<div class="vlt-navbar-contacts">
+							<a data-bs-toggle="modal" href="#Popupportfolio">
+								<!-- <i class="fa fa-file-pdf"></i> -->
+								<i class="fa fa-user"></i>
+							­</a>
+						
+						</div>
+
+
+						
+
+						<!-- <div class="vlt-navbar-contacts"><a href="tel:+91 90449 10449">+91 90449 10449­</a></div> -->
 						<!--Menu Burger-->
 						<a class="vlt-menu-burger js-offcanvas-menu-open" href="#">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round">
@@ -161,11 +178,18 @@
 				</li>
 				<li data-menuanchor="Partners"><a href="#Partners">Partners</a>
 				</li>
-				<li data-menuanchor="Blog"><a href="#News">News</a>
+				<li data-menuanchor="News"><a href="#News">News</a>
 				</li>
 				<li data-menuanchor="Blog"><a href="#Blog">Blog</a>
 				</li>
 				<li data-menuanchor="Contact"><a href="#Contact">Contact</a>
+				</li>
+				<li data-menuanchor="#">
+						<a data-bs-toggle="modal" href="#Popupportfolio">
+							<!-- <i class="fa fa-file-pdf"></i> -->
+							<i class="fa fa-user"></i>
+						­</a>
+				
 				</li>
 			</ul>
 		</nav>
@@ -209,6 +233,49 @@
 	</div>
 
 
+		<!-- Portfolio Popup --->
+		<div class="modal" id="Popupportfolio">
+			<div class="modal-dialog">
+			  <div class="modal-content">
+				<!-- Modal Header -->
+				<div class="modal-header">
+				  <!-- <h4 class="modal-title text-body">Modal Heading</h4> -->
+				  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+		  
+				<!-- Modal body -->
+				<div class="modal-body">
+					<form id="portfolio-form" method="post">
+					 {% csrf_token %}
+						<div class="form-input-material">
+						  <input type="text" name="popname" id="popname" placeholder="Name"  class="form-control-material"/>
+						</div>
+						<div class="form-input-material">
+						  <input type="text" name="popemail" id="popemail" placeholder="Email"  class="form-control-material" />
+						</div>
+	
+						<div class="form-input-material">
+							<input type="text" name="popphone" id="popphone" placeholder="Phone"  class="form-control-material" />
+						  </div>
+	
+						  <div class="form-input-material">
+							<input type="text" name="popcity" id="popcity" placeholder="City"  class="form-control-material" />
+						  </div>
+						<!-- <div class="form-input-material">
+							<textarea name="reach-us-message" id="reach-us-message" placeholder="Reason To Reach Us"></textarea>
+							{% if errors.reach_message %}
+							<p style="color: red;">{{ errors.reach_message }}</p>
+							{% endif %}
+						</div> -->
+						<button type="button" id="popupsubmit" class="btn btn-primary login-btn btn-ghost">Submit</button>
+					  </form>
+				</div>
+		  
+			  </div>
+			</div>
+		</div>
+	<!-- Portfolio Popup --->
+	
 
 
 	
@@ -244,6 +311,50 @@
 	<script src="{% static 'assets/scripts/vlt-helpers.js' %}"></script>
 	<script src="{% static 'assets/scripts/vlt-controllers.min.js' %}"></script>
 	<script src="{% static 'assets/scripts/contact.js' %}"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("portfolio-modal");
+    const link = document.getElementById("portfolio-link");
+    const closeBtn = modal.querySelector(".close");
+    const form = document.getElementById("portfolio-form");
+
+    // Open Modal
+    link.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent the default link behavior
+        modal.style.display = "block";
+    });
+
+    // Close Modal on Close Button
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // Close Modal on Outside Click
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Close Modal After Form Submission
+    form.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent actual form submission
+        alert("Form submitted successfully!");
+        modal.style.display = "none";
+        form.reset(); // Reset the form fields
+    });
+});
+	</script>
+
+
+
 </body>
 
 </html>

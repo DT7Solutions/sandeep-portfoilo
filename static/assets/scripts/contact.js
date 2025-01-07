@@ -81,3 +81,68 @@ $(document).ready(function(){
         });
     })
 })
+
+
+
+
+// portfolio form
+$(document).ready(function(){
+    $('#popupsubmit').click(function(){
+
+        let popname = $('#popname').val();
+        let popemail = $('#popemail').val();
+        let popphone = $('#popphone').val();  
+        let popcity = $('#popcity').val();  
+        let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val();
+
+
+        if(popname==""){
+            alert("Name field required")
+            return;
+        }
+
+        if(popemail==""){
+            alert("Email field required")
+            return;
+        }
+
+        if(popphone==""){
+            alert("Phone field required")
+            return;
+        }
+
+        if(popcity==""){
+            alert("City field required")
+            return;
+        }
+
+
+        let data = new FormData()
+        data.append('popname',popname),
+        data.append('popemail',popemail),
+        data.append('popphone',popphone),
+        data.append('popcity',popcity)
+        data.append("csrfmiddlewaretoken",csrfmiddlewaretoken)
+
+
+        $.ajax({
+            url: 'submit-form/',
+            method: 'POST',
+            processData: false,
+            contentType: false,
+            cache: false,
+            mimeType: "multipart/form-data",
+            data: data,
+
+            success: function (response) {
+                $('#portfolio-form')[0].reset(); // Reset the form on success
+                alert('Form submitted successfully');
+                window.location.href = 'https://calendly.com/';
+            },
+            error: function (response) {
+                alert('There was an error submitting the form. Please try again.');
+                // console.error('Error:', xhr.responseText);
+            }
+        });
+    })
+})
