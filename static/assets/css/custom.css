@@ -785,8 +785,8 @@ address{
  /* Style for sticky icon */
 .sticky-icon {
     position: fixed;
-    bottom: 8%;
-    right: -4%;
+    bottom: 14%;
+    right: -6%;
     transform: rotate(90deg);
    
 }
