@@ -828,7 +828,18 @@ address{
         height: 150vh; 
         overflow-y: scroll; 
     }
+    .sticky-icon {
+        position: fixed;
+        bottom: 14%;
+        right: -25%;
+        transform: rotate(90deg);
+       
+    }
+    .sticky-icon .vlt-btn--primary{
+        font-weight: 600;
+    }
 }
+
 .news-letter-form .login-form  .form-input-material {
         margin: 10px 0;
         width: 100%;

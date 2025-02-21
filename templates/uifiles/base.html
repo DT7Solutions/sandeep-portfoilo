@@ -88,7 +88,7 @@
 			<div class="vlt-navbar-inner">
 				<div class="vlt-navbar-inner--left">
 					<!--Logo-->
-					<a class="vlt-navbar-logo" href="/"><img src="{% static 'assets/img/root/logo.png' %}" alt="logo"></a>
+					<a class="vlt-navbar-logo" href="/"><img src="{% static 'assets/img/root/san-log.png' %}" alt="logo"></a>
 				</div>
 				<div class="vlt-navbar-inner--center">
 					<div class="container">
@@ -407,10 +407,13 @@
 		</div>
 		<div class="vlt-footer-copyright">
 			<p>Crafted by <a href="https://dt7.agency/" target="_blank">Dt7.agency</a></p>
-			<div class="sticky-icon" >
-				<a class="vlt-btn vlt-btn--primary vlt-btn--md vlt-btn-invite" data-bs-toggle="modal" href="#news-letter-Popup">book an appointment</a>
-				</div>
-		</div>						
+
+			<!-- <div class="sticky-icon">
+				<a class="vlt-btn vlt-btn--primary vlt-btn--md vlt-btn-invite" data-bs-toggle="modal"
+					href="#news-letter-Popup">book an appointment</a>
+			</div> -->
+
+		</div>
 		<div class="vlt-language-switcher d-none">
 			<a class="is-active" href="#">Eng</a>
 			<a href="#">Fra</a>
@@ -476,7 +479,11 @@
 			}
 		});
 	</script>
-
+<!-- Calendly badge widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/badugudinesh93?hide_landing_page_details=1&hide_gdpr_banner=1', text: 'Schedule time with me', color: '#CF000F', textColor: '#ffffff', branding: true }); }</script>
+<!-- Calendly badge widget end -->
 
 </body>
 

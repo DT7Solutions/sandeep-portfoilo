@@ -33,7 +33,7 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = []
-
+# '93.127.199.26','sanstrategies.com','www.sanstrategies.com'
 
 # Application definition
 
