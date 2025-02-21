@@ -146,3 +146,78 @@ $(document).ready(function(){
         });
     })
 })
+
+
+$(document).ready(function () {
+    $("#news-letter-submit").click(function () {
+
+       let name        =  $("#fullname").val().trim();;
+       let phonenumber =  $("#phone_number").val().trim();
+       let email       =  $("#emailid").val().trim();
+       let city        = $("#city").val();
+       let other       =  $("#other_problem").val();
+
+       if (!name || !phonenumber || !email) {
+        alert("Please fill in required the details.");
+        return false; // Prevents form submission
+    }
+
+        let data = new FormData();
+        data.append('full_name', name);
+        data.append('phone_number', phonenumber);
+        data.append('invite_email', email);
+        data.append('city', city);
+        data.append('other_problem',other );
+
+        var lookingFor = [];
+        $("input[name='looking_for']:checked").each(function () {
+            lookingFor.push($(this).val());
+        });
+
+        data.append('looking_for[]', lookingFor);
+
+        $.ajax({
+            type: "POST",
+            url: "/save-newsletter/",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            dataType: "json",
+            mimeType: "multipart/form-data",
+
+            success: function (response) {
+                if (response.status === "success") {
+                    alert(response.message);
+                    $(".login-form")[0].reset(); 
+                    $("#news-letter-Popup").modal('hide');
+                    $("#news-letter-download").modal('show');
+                } else {
+                    alert("Error: " + response.message);
+                }
+            },
+            error: function () {
+                alert("An error occurred. Please try again.");
+            }
+        });
+    });
+
+    // Show "other problem" textarea if "My problem is not listed" is checked
+    $("#other_option").change(function () {
+        if ($(this).is(":checked")) {
+            $("#other_problem_box").show();
+        } else {
+            $("#other_problem_box").hide();
+        }
+    });
+});
+
+
+
+document.getElementById("download-newsletter").addEventListener("click", function() {
+    const pdfUrl = "https://magsmen.in/brand_corner_trademarks_and_deceptive_practices/";
+    const printWindow = window.open(pdfUrl, "_blank");
+    printWindow.onload = function() {
+        printWindow.print();
+    };
+});

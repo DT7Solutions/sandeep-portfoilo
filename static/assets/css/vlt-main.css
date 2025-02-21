@@ -3206,6 +3206,7 @@ select:focus::-webkit-input-placeholder
 
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
+            display: none !important;
 }
 @media only screen and (min-width: 1200px)
 {

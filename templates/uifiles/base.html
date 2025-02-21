@@ -87,7 +87,8 @@
 			<div class="vlt-navbar-background"></div>
 			<div class="vlt-navbar-inner">
 				<div class="vlt-navbar-inner--left">
-					<!--Logo--><a class="vlt-navbar-logo" href="/"><img src="{% static 'assets/img/root/logo.png' %}" alt="logo"></a>
+					<!--Logo-->
+					<a class="vlt-navbar-logo" href="/"><img src="{% static 'assets/img/root/logo.png' %}" alt="logo"></a>
 				</div>
 				<div class="vlt-navbar-inner--center">
 					<div class="container">
@@ -287,7 +288,116 @@
 
 
 
+	<div class="modal news-letter-form" id="news-letter-Popup">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+			  <!-- <h4 class="modal-title text-body">Modal Heading</h4> -->
+			  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				<form class="login-form" >
+					<!-- {% csrf_token %} -->
+					<div class="row px-5 news-letter-input">
+						<div class="col-sm-12 col-lg-6">
+							<div class="form-input-material">
+								<input type="text" name="fullname" id="fullname" placeholder="Name" class="form-control" required />
+							</div>
+						</div>
+						<div class="col-sm-12 col-lg-6">
+							<div class="form-input-material">
+								<input type="tel" name="phone_number" id="phone_number" placeholder="Phone Number" autocomplete="off"
+									class="form-control" required />
+								{% if errors.phone_number %}
+								<p style="color: red;">{{ errors.phone_number }}</p>
+								{% endif %}
+							</div>
+						</div>
+						<div class="col-sm-12 col-lg-6">
+							<div class="form-input-material">
+								<input type="email" name="emailid" id="emailid" placeholder="Email" autocomplete="off"
+									class="form-control" required />
+								{% if errors.invite_email %}
+								<p style="color: red;">{{ errors.invite_email }}</p>
+								{% endif %}
+							</div>
+						</div>
+						<div class="col-sm-12 col-lg-6">
+							<div class="form-input-material">
+								<input type="text" name="city" id="city" placeholder="City" autocomplete="off" class="form-control"
+									required />
+								{% if errors.city %}
+								<p style="color: red;">{{ errors.city }}</p>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				
+					<p class="p-qustion">What are you looking for?</p>
+					<div class="checkbox-group row px-5">
+						<div class="col-sm-12 col-lg-6">
+							<label><input type="checkbox" name="looking_for" value="Brand Consulting"> Brand Consulting</label>
+						</div>
+						<div class="col-sm-12 col-lg-6">
+							<label><input type="checkbox" name="looking_for" value="Brand Consulting"> Brand Consulting</label>
+						</div>
+						<div class="col-sm-12 col-lg-6">
+							<label><input type="checkbox" name="looking_for" value="Personal Brand Consulting"> Personal Brand Consulting</label>
+						</div>
+						<div class="col-sm-12 col-lg-6">
+							<label><input type="checkbox" name="looking_for" value="Problem with My Brand"> Problem with My Brand</label>
+						</div>
+						<div class="col-sm-12 col-lg-6">
+							<label><input type="checkbox" name="looking_for" value="Brand Expansion"> Brand Expansion</label>
+						</div>
+						<div class="col-sm-12 col-lg-6">
+							<label><input type="checkbox" name="looking_for" value="Brand Budgeting"> Brand Budgeting</label>
+						</div>
+						<div class="col-sm-12 col-lg-6">
+							<label><input type="checkbox" name="looking_for" value="Brand Strategy"> Brand Strategy</label>
+						</div>
+						<div class="col-sm-12 col-lg-6">
+							<label><input type="checkbox" name="looking_for" value="Brand Creation"> Brand Creation</label>
+						</div>
+						<div class="col-12">
+							<label><input type="checkbox" id="other_option" name="looking_for" value="Other"> My problem is not listed</label>
+						</div>
+					</div>
+				
+					<div class="form-input-material px-5" id="other_problem_box" style="display: none;">
+						<textarea name="other_problem" id="other_problem" placeholder="Please describe your issue"></textarea>
+					</div>
+				
+					<button type="button" id="news-letter-submit" class="btn btn-primary login-btn btn-ghost">Submit</button>
+				</form>
+			</div>
+		  </div>
+		</div>
+	</div>
 
+	<div class="modal news-letter-download" id="news-letter-download">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+			  <!-- <h4 class="modal-title text-body">Modal Heading</h4> -->
+			  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body d-flex justify-content-center">
+				<div class="main">
+					<p class="text-body tetx-center pb-4">Please download newsletter</p>
+				
+					<a class="vlt-btn vlt-btn--primary vlt-btn--md vlt-btn-invite mt-3" id="download-newsletter">Download Newsletter</a>
+				</div>
+				
+
+			</div>
+		  </div>
+		</div>
+	</div>
 
 
     <!--Footer-->
@@ -297,6 +407,9 @@
 		</div>
 		<div class="vlt-footer-copyright">
 			<p>Crafted by <a href="https://dt7.agency/" target="_blank">Dt7.agency</a></p>
+			<div class="sticky-icon" >
+				<a class="vlt-btn vlt-btn--primary vlt-btn--md vlt-btn-invite" data-bs-toggle="modal" href="#news-letter-Popup">newsletter</a>
+				</div>
 		</div>						
 		<div class="vlt-language-switcher d-none">
 			<a class="is-active" href="#">Eng</a>
@@ -353,6 +466,16 @@
 });
 	</script>
 
+	<script>
+		document.getElementById('other_option').addEventListener('change', function() {
+			var otherBox = document.getElementById('other_problem_box');
+			if (this.checked) {
+				otherBox.style.display = 'block';
+			} else {
+				otherBox.style.display = 'none';
+			}
+		});
+	</script>
 
 
 </body>

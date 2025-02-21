@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.http import HttpResponse
-from .models import Blog,News,Contact,Category,PortfolioPopupSubmit
+from .models import Blog,News,Contact,Category,PortfolioPopupSubmit,NewsletterSubscription
 import csv
 
 # Register your models here.
@@ -44,8 +44,13 @@ class AdminPortfolioPopupSubmit(admin.ModelAdmin):
     list_display = ['name','email','phone','city']
 
 
+class AdminNewsletter(admin.ModelAdmin):
+    list_display = ['full_name','phone_number','invite_email','city','looking_for','other_problem']
+
+
 admin.site.register(Category,AdminCategory)
 admin.site.register(News,AdminNews)
 admin.site.register(Blog,AdminBlog)
 admin.site.register(Contact,AdminContact)
 admin.site.register(PortfolioPopupSubmit,AdminPortfolioPopupSubmit)
+admin.site.register(NewsletterSubscription,AdminNewsletter)

@@ -1,11 +1,12 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from .models import Blog,News,Contact,PortfolioPopupSubmit
+from .models import Blog,News,Contact,PortfolioPopupSubmit,NewsletterSubscription
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.mail import send_mail
 
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -134,3 +135,31 @@ def submit_form(request):
         return JsonResponse({'message': 'Portfolio submitted successfully!'})
 
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+@csrf_exempt
+def save_newsletter_subscription(request):
+    if request.method == "POST":
+        full_name = request.POST.get('full_name')
+        phone_number = request.POST.get('phone_number')
+        invite_email = request.POST.get('invite_email')
+        city = request.POST.get('city')
+        looking_for = request.POST.getlist('looking_for[]')  # Get multiple checkboxes
+        other_problem = request.POST.get('other_problem', '')
+        if other_problem == "":
+            other_problem ="selected some one"
+        
+        # Save data to the database
+        try:
+            NewsletterSubscription.objects.create(
+                full_name=full_name,
+                phone_number=phone_number,
+                invite_email=invite_email,
+                city=city,
+                looking_for=", ".join(looking_for),
+                other_problem=other_problem
+            )
+            return JsonResponse({"status": "success", "message": "Subscription saved successfully!"})
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)})
+
+    return JsonResponse({"status": "error", "message": "Invalid request!"})

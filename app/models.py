@@ -77,3 +77,16 @@ class PortfolioPopupSubmit(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class NewsletterSubscription(models.Model):
+    full_name = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=20)
+    invite_email = models.EmailField()
+    city = models.CharField(max_length=100)
+    looking_for = models.TextField()  # Store selected checkboxes as a comma-separated string
+    other_problem = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.full_name
